@@ -1,4 +1,4 @@
-require('./anagram');
+require('./example');
 
 describe('Anagram', function() {
 

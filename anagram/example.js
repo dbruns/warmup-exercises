@@ -1,30 +1,77 @@
-Anagram = function Anagram(word) {
-  this.word = word;
-};
+// Anagram = function Anagram(word) {
+//   this.word = word;
+// };
 
-Anagram.prototype = {
-  match: function(words) {
-    var matches = [];
+// Anagram.prototype = {
+//   match: function(words) {
+//     var matches = [];
 
-    for(var i = 0; i < words.length; i++) {
-      var currentWord = words[i];
+//     for(var i = 0; i < words.length; i++) {
+//       var currentWord = words[i];
 
-      if (currentWord.length == this.word.length) {
-        var currentWordLetters = currentWord.split('').sort();
-        var matchingWordLetters = this.word.split('').sort();
+//       if ( this.wordIsAnagramOf(this.word,currentWord) ) {
+//         matches.push(currentWord);
+//       }
+//     }
+//     return matches;
+//   },
+//   wordIsAnagramOf: function(first,second) {
+//     var isMatch = false;
 
-        var isMatch = true;
+//     if (first.length == second.length) {
+//       var firstLetters = first.split('').sort();
+//       var secondLetters = second.split('').sort();
 
-        for (var j = 0; j < currentWordLetters.length; j++) {
-          if (currentWordLetters[j] != matchingWordLetters[j]) {
-            isMatch = false;
-          }
-        }
+//       isMatch = true;
 
-        if (isMatch) { matches.push(currentWord); }
+//       for (var j = 0; j < firstLetters.length; j++) {
+//         if (firstLetters[j] != secondLetters[j]) {
+//           isMatch = false;
+//         }
+//       }
+//     }
+
+//     return isMatch;
+//   }
+// };
+
+// Anagram = function(word) {
+
+//   this.canonical = canonicalize(word);
+
+//   this.match = function(candidates) {
+//     var matches = [];
+//     for(var candidate, i=0; candidate = candidates[i]; i++) {
+//       if (this.canonical == canonicalize(candidate))
+//         matches.push(candidate);
+//     }
+//     return matches;
+//   };
+
+//   function canonicalize(word) {
+//     return word.toLowerCase().split("").sort().join("");
+//   };
+
+// }
+
+// console.log(new Anagram("something"));
+
+Anagram = function(input){
+  var word = sortChars(input),
+      anagrams = [];
+
+  this.match = function(options){
+    for (var i = 0; i < options.length; i++){
+      var comparison = sortChars(options[i]);
+
+      if (word === comparison){
+        anagrams.push(options[i]);
       }
-
     }
-    return matches;
+    return anagrams;
   }
-};
+
+  function sortChars(word) {
+    return word.split("").sort().join("");
+  }
+}
