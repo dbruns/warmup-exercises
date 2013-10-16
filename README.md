@@ -1,31 +1,75 @@
-# Warm-Ups
+# Warm-Up Exercises
 
-A collection of exercises to be given at the start of the day, to encourage people to get to class sooner than necessary, get to work, and allow the brain to get engaged with the material.
+## Setup
 
-They should take about 15-20 minutes to solve.
+Clone this repository.
 
-## Resources
+```sh
+git clone git@github.com:JumpstartLab/warmup-exercises.git
+```
 
-* Rosalind Institute
-* Euler Problems
-* ICP Archive
-* Chris Pine
-* Cattle Drive
-* Ultrasaurus's Test First Teaching
-* https://github.com/lucaminudel/TDDwithMockObjectsAndDesignPrinciples/tree/master/TDDMicroExercises/Ruby
-* SmallBASIC 'homework' problems from Teaching Kids Programming
+### Ruby
 
-## Ideas
+* Install [RVM](https://rvm.io/)
+* Install [Ruby 2.0.0](http://www.ruby-lang.org/en/)
 
-### Online Application
+```bash
+$ \curl -L https://get.rvm.io | bash -s stable --rails --autolibs=enabled
+```
 
-Jumpstart Lab Warmup App
-- scheduling
-- (anonymous) ratings/feedback
-- showing solutions
+### JavaScript & CoffeeScript
 
-### Video series
+* Install [Node.js](http://nodejs.org/)
+* Install [jasmine-node](https://github.com/mhevery/jasmine-node)
 
-us solving problems and talking about it
+```bash
+$ brew install node
+$ npm install jasmine-node -g
+```
 
+Update the `~/.bash_profile` to include NPM binary files on the PATH:
 
+```
+export PATH=/usr/local/share/npm/bin:$PATH
+```
+
+### Clojure
+
+* Install [Clojure](http://clojure.org)
+
+```
+brew install clojure
+```
+
+## Execution
+
+### Ruby
+
+```bash
+$ cd WARMUP
+$ ruby test.rb
+```
+
+### JavaScript
+
+```bash
+$ cd WARMUP
+$ jasmine-node test.spec.js
+```
+
+### CoffeeScript
+
+Jasmine-Node favors JavaScript files over CoffeeScript (even with the differing
+file endings) so the test file named is named differently.
+
+```bash
+$ cd WARMUP
+$ jasmine-node --coffee coffee.spec.coffee
+```
+
+### Clojure
+
+```bash
+$ cd WARMUP
+$ clj test.clj
+```
